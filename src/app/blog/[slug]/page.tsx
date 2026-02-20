@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const profile = await getProfile();
-  const loSlug = getSlugFromRequest();
+  const loSlug = await getSlugFromRequest();
   const firstName = profile.name.split(" ")[0];
   const telHref = profile.phone ? `tel:${profile.phone.replace(/\D/g, "")}` : null;
 

@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function BlogPage() {
   const staticPosts = getAllPosts();
   const profile = await getProfile();
-  const loSlug = getSlugFromRequest();
+  const loSlug = await getSlugFromRequest();
 
   // Fetch from Mission Control CMS using the LO's slug
   const cmsPosts: CMSPost[] = await fetchCMSPosts(loSlug, "blog", 10);

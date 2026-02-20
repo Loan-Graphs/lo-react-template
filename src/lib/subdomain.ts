@@ -1,7 +1,7 @@
 import { headers } from 'next/headers'
 
-export function getSlugFromRequest(): string {
-  const headersList = headers()
+export async function getSlugFromRequest(): Promise<string> {
+  const headersList = await headers()
   const host = headersList.get('host') ?? ''
 
   // e.g. "davidmordue.loangraphs.com"         → "davidmordue"

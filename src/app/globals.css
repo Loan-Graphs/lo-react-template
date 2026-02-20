@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-navy-950: #020617;
+  --color-navy-900: #0f172a;
+  --color-navy-800: #1e293b;
+  --color-navy-700: #334155;
+  --color-sky-400: #38bdf8;
+  --color-sky-500: #0ea5e9;
+  --color-sky-600: #0284c7;
+  --color-sky-700: #0369a1;
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --font-sans: var(--font-inter);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utility overrides for navy/sky palette */
+.bg-navy-900 { background-color: #0f172a; }
+.bg-navy-800 { background-color: #1e293b; }
+.bg-navy-700 { background-color: #334155; }
+.bg-sky-500 { background-color: #0ea5e9; }
+.bg-sky-600 { background-color: #0284c7; }
+.text-sky-400 { color: #38bdf8; }
+.text-sky-500 { color: #0ea5e9; }
+.text-navy-900 { color: #0f172a; }
+.text-navy-800 { color: #1e293b; }
+.border-sky-500 { border-color: #0ea5e9; }
+.border-navy-700 { border-color: #334155; }
+.hover\:bg-sky-600:hover { background-color: #0284c7; }
+.hover\:text-sky-400:hover { color: #38bdf8; }
+.hover\:border-sky-500:hover { border-color: #0ea5e9; }
+.focus\:border-sky-500:focus { border-color: #0ea5e9; }
+.focus\:ring-sky-500:focus { --tw-ring-color: #0ea5e9; }
+.ring-sky-500 { --tw-ring-color: #0ea5e9; }

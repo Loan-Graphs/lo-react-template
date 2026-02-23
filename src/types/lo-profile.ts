@@ -16,6 +16,21 @@ export interface Testimonial {
   date?: string
 }
 
+export interface TeamMember {
+  slug: string
+  name: string
+  title: string
+  nmls: string
+  photo: string
+  bio: string
+  specialty?: string
+  phone?: string
+  email?: string
+  testimonials?: Testimonial[]
+  loanProducts?: LoanProduct[]
+  differentiators?: string[]
+}
+
 export interface LOProfile {
   // Identity
   name: string
@@ -55,4 +70,7 @@ export interface LOProfile {
   seoTier?: SeoTier
   targetGeos?: string[]
   targetTopics?: string[]
+
+  // Team / branch manager support
+  teamMembers?: TeamMember[]
 }

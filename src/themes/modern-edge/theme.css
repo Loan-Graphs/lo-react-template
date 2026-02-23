@@ -1,0 +1,172 @@
+.theme-modern-edge {
+  --color-primary: #00ff88;
+  --color-primary-light: rgba(0, 255, 136, 0.1);
+  --color-primary-dark: #00cc6a;
+  --color-accent: #00ff88;
+  --color-accent-light: rgba(0, 255, 136, 0.1);
+  --hero-bg: #0a0a0a;
+  --hero-bg-end: #111111;
+  --section-bg-alt: #111111;
+  --color-background: #0a0a0a;
+  --color-foreground: #f0f0f0;
+  --color-muted: #888888;
+  --color-muted-light: #555555;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --radius-sm: 0;
+  --radius-md: 0.125rem;
+  --radius-lg: 0.25rem;
+
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+}
+
+/* ── Diagonal section breaks ────────────────────────────── */
+.theme-modern-edge .edge-diagonal-top {
+  height: 60px;
+  background: #111111;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+  margin-bottom: -1px;
+}
+
+.theme-modern-edge .edge-diagonal-bottom {
+  height: 60px;
+  background: #111111;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -1px;
+}
+
+/* Alt section diagonal (0a0a0a-colored cuts) */
+.theme-modern-edge .edge-diagonal-top-dark {
+  height: 60px;
+  background: #0a0a0a;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+  margin-bottom: -1px;
+}
+
+.theme-modern-edge .edge-diagonal-bottom-dark {
+  height: 60px;
+  background: #0a0a0a;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -1px;
+}
+
+/* ── Stat counter bar ────────────────────────────────────── */
+.theme-modern-edge .edge-stat-bar {
+  background: #00ff88;
+  padding: 0.75rem 0;
+}
+
+.theme-modern-edge .edge-stat-bar-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.theme-modern-edge .edge-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.theme-modern-edge .edge-stat-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #0a0a0a;
+  line-height: 1;
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.04em;
+}
+
+.theme-modern-edge .edge-stat-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(10, 10, 10, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.2rem;
+}
+
+/* ── Override white card backgrounds for dark theme ─────── */
+.theme-modern-edge [style*="background-color: white"],
+.theme-modern-edge [style*="background-color: rgb(255, 255, 255)"] {
+  background-color: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Lead form card */
+.theme-modern-edge [style*="background-color: white"][style*="box-shadow"] {
+  background-color: #141414 !important;
+  border: 1px solid rgba(0, 255, 136, 0.2) !important;
+  box-shadow: 0 0 60px rgba(0, 255, 136, 0.08) !important;
+}
+
+/* ── Override hardcoded text colors ─────────────────────── */
+.theme-modern-edge section p[style*="374151"],
+.theme-modern-edge section p[style*="55, 65, 81"],
+.theme-modern-edge .space-y-4 p {
+  color: rgba(200, 200, 200, 0.85) !important;
+}
+
+/* ── Section backgrounds ─────────────────────────────────── */
+.theme-modern-edge section:not([style*="background"]) {
+  background-color: #0a0a0a;
+}
+
+/* ── CTA buttons: electric accent, sharp edges ─────────────── */
+.theme-modern-edge a[style*="color-primary"][style*="border-radius"] {
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.85rem !important;
+  font-weight: 900 !important;
+  color: #0a0a0a !important;
+}
+
+/* ── Headings: heavy weight ──────────────────────────────── */
+.theme-modern-edge h1 {
+  font-weight: 900 !important;
+  letter-spacing: -0.03em !important;
+  text-transform: uppercase;
+}
+
+.theme-modern-edge h2,
+.theme-modern-edge h3 {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* ── Input fields ─────────────────────────────────────────── */
+.theme-modern-edge input,
+.theme-modern-edge select,
+.theme-modern-edge textarea {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(0, 255, 136, 0.2) !important;
+  color: #f0f0f0 !important;
+}
+
+.theme-modern-edge input::placeholder,
+.theme-modern-edge textarea::placeholder {
+  color: rgba(136, 136, 136, 0.7) !important;
+}
+
+.theme-modern-edge label {
+  color: #888888 !important;
+}
+
+/* ── Social proof bar on electric green ─────────────────── */
+.theme-modern-edge section[style*="backgroundColor: var(--color-primary)"] div[style*="color: white"],
+.theme-modern-edge section[style*="color-primary"] div[style*="2.25rem"] {
+  letter-spacing: -0.04em;
+}
+
+/* ── Icon container: electric tint ─────────────────────── */
+.theme-modern-edge [style*="color-primary-light"][style*="border-radius"] {
+  background-color: rgba(0, 255, 136, 0.08) !important;
+  border-radius: 0 !important;
+}

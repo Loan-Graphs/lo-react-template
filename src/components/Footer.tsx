@@ -18,9 +18,9 @@ export default async function Footer() {
   const nmls = profile.nmls ? `NMLS# ${profile.nmls}` : "";
   const company = profile.company || "Revolve Mortgage";
   const statesLabel =
-    profile.states.length > 0
-      ? profile.states.slice(0, 3).join(", ") +
-        (profile.states.length > 3 ? " & more" : "")
+    profile.licenseStates.length > 0
+      ? profile.licenseStates.slice(0, 3).join(", ") +
+        (profile.licenseStates.length > 3 ? " & more" : "")
       : "";
 
   return (
@@ -48,7 +48,7 @@ export default async function Footer() {
             <p className="text-sm leading-relaxed mb-4">
               {profile.bio
                 ? profile.bio.slice(0, 120) + (profile.bio.length > 120 ? "…" : "")
-                : `Helping families and investors achieve their real estate goals. ${profile.states.length} state${profile.states.length !== 1 ? "s" : ""} licensed.`}
+                : `Helping families and investors achieve their real estate goals. ${profile.licenseStates.length} state${profile.licenseStates.length !== 1 ? "s" : ""} licensed.`}
             </p>
             {nmls && <p className="text-xs">{company} | {nmls}</p>}
           </div>
@@ -130,9 +130,9 @@ export default async function Footer() {
               )}
             </ul>
             <a
-              href={profile.applyUrl === "#" ? "/apply" : profile.applyUrl}
-              target={profile.applyUrl.startsWith("http") ? "_blank" : undefined}
-              rel={profile.applyUrl.startsWith("http") ? "noopener noreferrer" : undefined}
+              href={profile.calendlyUrl || "/apply"}
+              target={profile.calendlyUrl?.startsWith("http") ? "_blank" : undefined}
+              rel={profile.calendlyUrl?.startsWith("http") ? "noopener noreferrer" : undefined}
               style={{ backgroundColor: "#0ea5e9" }}
               className="mt-6 inline-block px-5 py-2.5 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity"
             >

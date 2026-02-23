@@ -17,7 +17,7 @@ export default async function Navbar() {
       loName={profile.name}
       loInitials={getInitials(profile.name)}
       loPhone={profile.phone}
-      applyUrl={profile.applyUrl === "#" ? "/apply" : profile.applyUrl}
+      applyUrl={profile.calendlyUrl || "/apply"}
     />
   );
 }

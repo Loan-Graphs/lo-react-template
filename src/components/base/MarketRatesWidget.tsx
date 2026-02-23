@@ -1,11 +1,13 @@
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react'
 import type { LOProfile } from '@/types/lo-profile'
 
-const PLACEHOLDER_RATES = [
-  { label: '30-Year Fixed', rate: '6.875%', trend: 'down' as const },
-  { label: '15-Year Fixed', rate: '6.125%', trend: 'down' as const },
-  { label: 'FHA 30-Year', rate: '6.500%', trend: 'flat' as const },
-  { label: 'VA 30-Year', rate: '6.250%', trend: 'down' as const },
+type Trend = 'up' | 'down' | 'flat'
+
+const PLACEHOLDER_RATES: { label: string; rate: string; trend: Trend }[] = [
+  { label: '30-Year Fixed', rate: '6.875%', trend: 'down' },
+  { label: '15-Year Fixed', rate: '6.125%', trend: 'down' },
+  { label: 'FHA 30-Year', rate: '6.500%', trend: 'flat' },
+  { label: 'VA 30-Year', rate: '6.250%', trend: 'down' },
 ]
 
 const TrendIcon = {

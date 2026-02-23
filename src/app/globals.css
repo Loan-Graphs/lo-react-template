@@ -2,6 +2,16 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
+  /* Theme tokens — overridable per template / per LO */
+  --color-primary: #0ea5e9;
+  --color-primary-light: #e0f2fe;
+  --color-primary-dark: #0284c7;
+  --color-accent: #f97316;
+  --color-accent-light: #fff7ed;
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+
+  /* Legacy navy/sky aliases (used by existing components) */
   --color-navy-950: #020617;
   --color-navy-900: #0f172a;
   --color-navy-800: #1e293b;
@@ -10,9 +20,31 @@
   --color-sky-500: #0ea5e9;
   --color-sky-600: #0284c7;
   --color-sky-700: #0369a1;
-  --color-background: #ffffff;
-  --color-foreground: #0f172a;
+
   --font-sans: var(--font-inter);
+}
+
+:root {
+  /* Section backgrounds */
+  --hero-bg: #0f172a;
+  --hero-bg-end: #1e293b;
+  --section-bg-alt: #f8fafc;
+
+  /* Text colors */
+  --color-muted: #64748b;
+  --color-muted-light: #94a3b8;
+  --color-border: #e2e8f0;
+
+  /* Typography */
+  --font-heading: var(--font-inter);
+  --font-body: var(--font-inter);
+
+  /* Spacing & shape */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --section-py: 4rem;
+  --section-py-lg: 5rem;
 }
 
 * {
@@ -22,7 +54,7 @@
 body {
   background: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  font-family: var(--font-body), Inter, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

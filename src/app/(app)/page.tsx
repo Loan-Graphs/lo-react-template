@@ -1,5 +1,6 @@
 import { headers } from 'next/headers'
 import { getProfile } from '@/lib/profileContext'
+import { getSlugFromRequest } from '@/lib/subdomain'
 import {
   HeroSection,
   SocialProofBar,
@@ -15,9 +16,11 @@ import {
   UpsellGate,
   GeoAwareCTA,
 } from '@/components/base'
+import CustomizationRequestForm from '@/components/CustomizationRequestForm'
 
 export default async function HomePage() {
   const loProfile = await getProfile()
+  const loSlug = await getSlugFromRequest()
   const headersList = await headers()
   const visitorState = headersList.get('x-visitor-region') ?? undefined
 
@@ -48,6 +51,7 @@ export default async function HomePage() {
       <UpsellGate feature="seo-articles" loProfile={loProfile}>
         <BlogResources loProfile={loProfile} />
       </UpsellGate>
+      <CustomizationRequestForm loProfile={loProfile} loSlug={loSlug} />
       <LOFooter
         loProfile={loProfile}
         geoAwareCTA={<GeoAwareCTA loProfile={loProfile} visitorState={visitorState} />}

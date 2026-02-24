@@ -13,6 +13,8 @@ const FEATURE_LABELS: Record<UpsellGateProps['feature'], string> = {
 }
 
 export default function UpsellGate({ feature, loProfile, children }: UpsellGateProps) {
+  // Phase 5 verified: marketDataEnabled is checked here — free-tier users with
+  // feature='market-data' see the "Upgrade to unlock" gate unless marketDataEnabled is true.
   const isEnabled =
     (feature === 'market-data' && loProfile.marketDataEnabled) ||
     (feature === 'seo-articles' && loProfile.seoArticlesEnabled)

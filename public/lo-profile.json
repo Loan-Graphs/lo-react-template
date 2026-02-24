@@ -1,0 +1,46 @@
+{
+  "_note": "Local dev fallback. Replace with real LO data or let the LoanGraphs API populate this at build time.",
+  "name": "Alex Johnson",
+  "title": "Senior Loan Officer",
+  "nmls": "123456",
+  "photo": "",
+  "company": "Revolve Mortgage",
+  "licenseStates": ["AZ", "TX", "CA", "FL", "CO"],
+  "phone": "(602) 555-0100",
+  "email": "alex@example.com",
+  "calendlyUrl": "https://calendly.com/example",
+  "googleRating": 4.9,
+  "reviewCount": 87,
+  "yearsExperience": 12,
+  "primaryColor": "#0ea5e9",
+  "accentColor": "#f97316",
+  "logoUrl": "",
+  "headline": "Your Mortgage, Done Right.",
+  "subheadline": "Alex Johnson is a licensed mortgage loan officer with 12 years of experience helping buyers and investors close fast.",
+  "bio": "With over a decade in the mortgage industry, Alex specializes in purchase loans, DSCR investment loans, and VA loans. He's helped over 500 families achieve homeownership across Arizona, Texas, and beyond.",
+  "loanProducts": [
+    { "id": "purchase", "name": "Home Purchase", "description": "Buying your first home or upgrading? We'll find the right loan.", "icon": "home" },
+    { "id": "refinance", "name": "Refinance", "description": "Lower your rate, shorten your term, or pull cash out.", "icon": "refinance" },
+    { "id": "investment", "name": "DSCR Investment Loans", "description": "Grow your rental portfolio without W2 income requirements.", "icon": "investment" },
+    { "id": "fha", "name": "FHA & Low Down Payment", "description": "3–3.5% down payment options for eligible buyers.", "icon": "dollar" },
+    { "id": "va", "name": "VA Home Loans", "description": "$0 down for eligible veterans and active-duty military.", "icon": "shield" }
+  ],
+  "testimonials": [
+    { "id": "t1", "author": "Sarah M.", "rating": 5, "text": "Made the homebuying process so smooth. Everything was explained clearly and we closed in 28 days.", "date": "Phoenix, AZ" },
+    { "id": "t2", "author": "James & Linda T.", "rating": 5, "text": "We were first-time buyers and nervous about the process. Alex held our hand through every step.", "date": "Scottsdale, AZ" },
+    { "id": "t3", "author": "Mike R.", "rating": 5, "text": "Used them for my third DSCR loan. They know the investor side better than anyone.", "date": "Mesa, AZ" }
+  ],
+  "differentiators": [
+    "Local market expertise with 12 years of experience",
+    "Investor-friendly: DSCR, LLC lending, portfolio strategies",
+    "Direct access to your loan officer — not a call center",
+    "Fast closings: 21–30 days for most purchases",
+    "Competitive rates across 50+ loan programs"
+  ],
+  "plan": "paid",
+  "marketDataEnabled": true,
+  "seoArticlesEnabled": false,
+  "seoTier": "standard",
+  "targetGeos": ["Phoenix, AZ", "Scottsdale, AZ", "Mesa, AZ"],
+  "targetTopics": ["first-time homebuyer", "DSCR investment loans", "VA loans Arizona"]
+}

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+.theme-local-hero {
+  --color-primary: #c4622d;
+  --color-primary-light: rgba(196, 98, 45, 0.1);
+  --color-primary-dark: #a0501f;
+  --color-accent: #5a7a4e;
+  --color-accent-light: rgba(90, 122, 78, 0.1);
+  --hero-bg: #faf5ef;
+  --hero-bg-end: #f0e8dc;
+  --section-bg-alt: #f0e8dc;
+  --color-background: #faf9f7;
+  --color-foreground: #2d1f14;
+  --color-muted: #7a5c45;
+  --color-muted-light: #a07b60;
+  --color-border: #ddd0c0;
+  --font-heading: 'Nunito', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+
+  background-color: #faf9f7;
+  color: #2d1f14;
+}
+
+/* ── Hero override: warm cream hero needs dark text ────────── */
+.theme-local-hero section[style*="linear-gradient"] h1 {
+  color: #2d1f14 !important;
+}
+
+.theme-local-hero section[style*="linear-gradient"] p {
+  color: #6b4c35 !important;
+}
+
+/* Hero primary button: terracotta with white text */
+.theme-local-hero section[style*="linear-gradient"] a[style*="color-primary"] {
+  color: #ffffff !important;
+}
+
+/* Phone link in hero */
+.theme-local-hero section[style*="linear-gradient"] a[href^="tel"] {
+  color: #2d1f14 !important;
+  border-color: rgba(196, 98, 45, 0.5) !important;
+}
+
+/* Trust chips in hero */
+.theme-local-hero section[style*="linear-gradient"] span[style*="rgb(203, 213, 225)"] {
+  color: #7a5c45 !important;
+}
+
+/* Check icon color */
+.theme-local-hero section[style*="linear-gradient"] svg {
+  color: var(--color-accent) !important;
+}
+
+/* Badge pill in hero */
+.theme-local-hero section[style*="linear-gradient"] > div > div span[style*="color: var(--color-primary)"] {
+  color: var(--color-primary) !important;
+}
+
+/* ── Radial blob in hero — warm tone ──────────────────────── */
+.theme-local-hero section[style*="linear-gradient"] > div[style*="radial-gradient"] {
+  display: none;
+}
+
+/* ── White card overrides: warm cream ──────────────────────── */
+.theme-local-hero [style*="background-color: white"],
+.theme-local-hero [style*="background-color: rgb(255, 255, 255)"] {
+  background-color: #fff8f2 !important;
+  border-color: #ddd0c0 !important;
+}
+
+/* Lead form card */
+.theme-local-hero [style*="background-color: white"][style*="box-shadow"] {
+  background-color: #ffffff !important;
+  box-shadow: 0 12px 36px rgba(100, 50, 20, 0.12) !important;
+}
+
+/* ── Local lender badge / organic accent ──────────────────── */
+.theme-local-hero .local-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(90, 122, 78, 0.1);
+  border: 1px dashed rgba(90, 122, 78, 0.4);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  color: #5a7a4e;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.theme-local-hero .local-hero-leaf {
+  width: 14px;
+  height: 14px;
+  fill: #5a7a4e;
+  flex-shrink: 0;
+}
+
+/* ── Headings ─────────────────────────────────────────────── */
+.theme-local-hero h1,
+.theme-local-hero h2,
+.theme-local-hero h3 {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-weight: 800;
+}
+
+/* ── Section backgrounds ─────────────────────────────────── */
+.theme-local-hero section:not([style*="background"]) {
+  background-color: #faf9f7;
+}
+
+/* ── Social proof bar: terracotta ─────────────────────────── */
+.theme-local-hero section[style*="color-primary"] {
+  background-color: var(--color-primary) !important;
+}
+
+/* ── Organic icon container ───────────────────────────────── */
+.theme-local-hero [style*="color-primary-light"][style*="border-radius"] {
+  border-radius: 50% !important;
+  background-color: rgba(90, 122, 78, 0.12) !important;
+}
+
+.theme-local-hero [style*="color-primary-light"][style*="border-radius"] svg {
+  color: var(--color-accent) !important;
+}

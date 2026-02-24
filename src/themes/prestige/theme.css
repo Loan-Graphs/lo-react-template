@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+.theme-prestige {
+  --color-primary: #c9a227;
+  --color-primary-light: rgba(201, 162, 39, 0.12);
+  --color-primary-dark: #a88520;
+  --color-accent: #c9a227;
+  --color-accent-light: rgba(201, 162, 39, 0.12);
+  --hero-bg: #0a1628;
+  --hero-bg-end: #0d1f3c;
+  --section-bg-alt: #0d1f3c;
+  --color-background: #0a1628;
+  --color-foreground: #f8f4eb;
+  --color-muted: #9aacbf;
+  --color-muted-light: #6b7f96;
+  --color-border: rgba(201, 162, 39, 0.2);
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Crimson Text', Georgia, serif;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+
+  background-color: #0a1628;
+  color: #f8f4eb;
+}
+
+/* ── Gold section divider ─────────────────────────────────── */
+.theme-prestige .prestige-gold-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 162, 39, 0.4) 20%,
+    #c9a227 50%,
+    rgba(201, 162, 39, 0.4) 80%,
+    transparent 100%
+  );
+}
+
+/* ── Prestige profile portrait ────────────────────────────── */
+.theme-prestige .prestige-portrait-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.theme-prestige .prestige-portrait {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid #c9a227;
+  box-shadow:
+    0 0 0 6px rgba(201, 162, 39, 0.12),
+    0 12px 40px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  position: relative;
+  background: #0d1f3c;
+}
+
+.theme-prestige .prestige-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.theme-prestige .prestige-portrait-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #f8f4eb;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.theme-prestige .prestige-portrait-nmls {
+  color: rgba(201, 162, 39, 0.8);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ── Override white card backgrounds for dark theme ────────── */
+.theme-prestige [style*="background-color: white"],
+.theme-prestige [style*="background-color: rgb(255, 255, 255)"] {
+  background-color: #0d1f3c !important;
+  border-color: rgba(201, 162, 39, 0.2) !important;
+}
+
+/* Lead form card in hero */
+.theme-prestige [style*="background-color: white"][style*="box-shadow"] {
+  background-color: #0d1f3c !important;
+  border: 1px solid rgba(201, 162, 39, 0.3) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ── Override hardcoded text colors ────────────────────────── */
+/* Bio and testimonial paragraph text */
+.theme-prestige section p[style*="374151"],
+.theme-prestige section p[style*="55, 65, 81"] {
+  color: rgba(248, 244, 235, 0.82) !important;
+}
+
+/* About section bio text (hardcoded #374151) */
+.theme-prestige .space-y-4 p {
+  color: rgba(248, 244, 235, 0.82);
+}
+
+/* ── Section backgrounds ─────────────────────────────────── */
+.theme-prestige section:not([style*="background"]) {
+  background-color: #0a1628;
+}
+
+/* ── Heading font application ─────────────────────────────── */
+.theme-prestige h1,
+.theme-prestige h2,
+.theme-prestige h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* ── About photo: circular with gold border ───────────────── */
+.theme-prestige section [style*="width: 320px"] {
+  border-radius: 50% !important;
+  width: 300px !important;
+  height: 300px !important;
+  border: 3px solid #c9a227 !important;
+  box-shadow: 0 0 0 8px rgba(201, 162, 39, 0.1), 0 16px 48px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ── CTA button text: navy on gold ────────────────────────── */
+.theme-prestige a[style*="color-primary"][style*="border-radius"] {
+  color: #0a1628 !important;
+  font-weight: 800 !important;
+}
+
+/* ── Input fields in lead form ───────────────────────────── */
+.theme-prestige input,
+.theme-prestige select,
+.theme-prestige textarea {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(201, 162, 39, 0.3) !important;
+  color: #f8f4eb !important;
+}
+
+.theme-prestige input::placeholder,
+.theme-prestige textarea::placeholder {
+  color: rgba(154, 172, 191, 0.6) !important;
+}
+
+.theme-prestige label {
+  color: #9aacbf !important;
+}

@@ -1,0 +1,207 @@
+.theme-trust-builder {
+  --color-primary: #1a56db;
+  --color-primary-light: #e8f0fd;
+  --color-primary-dark: #1344b4;
+  --color-accent: #0ea5e9;
+  --color-accent-light: #e0f2fe;
+  --hero-bg: #ffffff;
+  --hero-bg-end: #f8fafc;
+  --section-bg-alt: #f8fafc;
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  --color-muted: #64748b;
+  --color-muted-light: #94a3b8;
+  --color-border: #e2e8f0;
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+/* ── Trust badge row ─────────────────────────────────────── */
+.theme-trust-builder .trust-badge-row {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.75rem 1rem;
+}
+
+.theme-trust-builder .trust-badge-row-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.theme-trust-builder .trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.theme-trust-builder .trust-badge-icon {
+  width: 18px;
+  height: 18px;
+  background: #1a56db;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.theme-trust-builder .trust-badge-icon svg {
+  width: 10px;
+  height: 10px;
+  stroke: white;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+/* ── Star rating row ──────────────────────────────────────── */
+.theme-trust-builder .trust-star-row {
+  background: linear-gradient(135deg, #1a56db 0%, #0ea5e9 100%);
+  padding: 1rem;
+  text-align: center;
+}
+
+.theme-trust-builder .trust-star-row-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.theme-trust-builder .trust-star-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.theme-trust-builder .trust-star-rating-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.theme-trust-builder .trust-star {
+  color: #fbbf24;
+  font-size: 1rem;
+}
+
+.theme-trust-builder .trust-review-count {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ── Video placeholder ───────────────────────────────────── */
+.theme-trust-builder .trust-video-placeholder {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(26, 86, 219, 0.15);
+  border: 1px solid #e2e8f0;
+}
+
+.theme-trust-builder .trust-video-play {
+  width: 64px;
+  height: 64px;
+  background: rgba(26, 86, 219, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.theme-trust-builder .trust-video-play:hover {
+  transform: scale(1.1);
+  background: #1344b4;
+}
+
+.theme-trust-builder .trust-video-play svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  margin-left: 4px;
+}
+
+.theme-trust-builder .trust-video-label {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ── Hero: white hero needs dark text ─────────────────────── */
+.theme-trust-builder section[style*="linear-gradient"] h1 {
+  color: #0f172a !important;
+}
+
+.theme-trust-builder section[style*="linear-gradient"] p {
+  color: #475569 !important;
+}
+
+.theme-trust-builder section[style*="linear-gradient"] span[style*="rgb(203, 213, 225)"] {
+  color: #475569 !important;
+}
+
+.theme-trust-builder section[style*="linear-gradient"] a[href^="tel"] {
+  color: #0f172a !important;
+  border-color: rgba(26, 86, 219, 0.4) !important;
+}
+
+/* ── Social proof bar: prominent + XL ────────────────────── */
+.theme-trust-builder section[style*="color-primary"] {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.theme-trust-builder section[style*="color-primary"] div[style*="2.25rem"] {
+  font-size: 2.75rem !important;
+}
+
+/* ── Cards: clean with subtle shadow ─────────────────────── */
+.theme-trust-builder .hover\:shadow-lg {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(26, 86, 219, 0.06) !important;
+}
+
+.theme-trust-builder .hover\:shadow-lg:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 8px 32px rgba(26, 86, 219, 0.1) !important;
+}
+
+/* ── Form fields: validation-ready styling ───────────────── */
+.theme-trust-builder input:focus,
+.theme-trust-builder select:focus,
+.theme-trust-builder textarea:focus {
+  outline: none !important;
+  border-color: #1a56db !important;
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.15) !important;
+}

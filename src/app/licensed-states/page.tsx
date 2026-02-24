@@ -28,7 +28,7 @@ const STATE_NAMES: Record<string, string> = {
 
 export default async function LicensedStatesPage() {
   const profile = await getProfile();
-  const states = profile.states.map((s) => s.toUpperCase());
+  const states = profile.licenseStates.map((s) => s.toUpperCase());
   const firstName = profile.name.split(" ")[0];
 
   return (

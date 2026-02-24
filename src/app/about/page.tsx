@@ -53,8 +53,8 @@ export default async function AboutPage() {
   const credentials = [
     "NMLS Licensed Mortgage Loan Officer",
     ...(profile.company ? [`${profile.company}`] : []),
-    ...(profile.states.length > 0
-      ? [`Licensed in: ${profile.states.join(", ")}`]
+    ...(profile.licenseStates.length > 0
+      ? [`Licensed in: ${profile.licenseStates.join(", ")}`]
       : []),
     "Specializing in Purchase, Refinance & Investment Loans",
     "FHA, VA, Conventional, Jumbo, DSCR",
@@ -66,7 +66,7 @@ export default async function AboutPage() {
     { icon: TrendingUp, value: "50+", label: "Loan Programs" },
     {
       icon: Home,
-      value: profile.states.length > 0 ? `${profile.states.length} States` : "Multi-State",
+      value: profile.licenseStates.length > 0 ? `${profile.licenseStates.length} States` : "Multi-State",
       label: "Markets Served",
     },
   ];

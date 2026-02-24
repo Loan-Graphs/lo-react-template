@@ -3,10 +3,10 @@
  * Typed API client for the LoanGraphs REST API.
  *
  * Env vars required:
- *   NEXT_PUBLIC_LOANGRAPHS_API_URL  — e.g. https://app.loangraphs.com/api
- *   LOANGRAPHS_API_KEY              — server-side only key for authenticated endpoints
- *   LO_ID                           — slug / ID of the LO whose site this is
- *   LOANGRAPHS_LEADS_API_KEY        — key used when forwarding leads to LoanGraphs
+ *   NEXT_PUBLIC_LOANGRAPHS_URL  — e.g. https://loangraphs.com  (no trailing slash)
+ *   LOANGRAPHS_API_KEY          — server-side only key for authenticated endpoints
+ *   LO_ID                       — slug / ID of the LO whose site this is
+ *   LOANGRAPHS_LEADS_API_KEY    — key used when forwarding leads to LoanGraphs
  */
 
 import type { LOProfile } from '@/types/lo-profile'
@@ -16,7 +16,7 @@ import type { LOProfile } from '@/types/lo-profile'
 // ---------------------------------------------------------------------------
 
 const API_BASE =
-  process.env.NEXT_PUBLIC_LOANGRAPHS_API_URL ?? 'https://app.loangraphs.com/api'
+  (process.env.NEXT_PUBLIC_LOANGRAPHS_URL ?? 'https://loangraphs.com').replace(/\/$/, '')
 
 const API_KEY = process.env.LOANGRAPHS_API_KEY ?? ''
 
@@ -241,10 +241,10 @@ export async function getLOProfile(
     return getStaticFallbackProfile()
   }
 
-  // Fetch profile + social links in parallel
+  // Fetch LO profile — GET /api/lo-profile?id=<loId>
   const [rawProfile, rawLinks] = await Promise.all([
-    apiFetch<ApiLOProfile>(`/${loId}/loan-officer/get-owner`),
-    apiFetch<ApiSocialLinks>(`/${loId}/loan-officer/social-media-links`),
+    apiFetch<ApiLOProfile>(`/api/lo-profile?id=${encodeURIComponent(loId)}`),
+    apiFetch<ApiSocialLinks>(`/api/lo-profile/social-links?id=${encodeURIComponent(loId)}`),
   ])
 
   if (rawProfile) {
@@ -266,6 +266,87 @@ export async function getLOProfile(
   }
 
   return getStaticFallbackProfile()
+}
+
+// ---------------------------------------------------------------------------
+// Property search / profile
+// ---------------------------------------------------------------------------
+
+export interface PropertySearchFilters {
+  /** US state abbreviation (e.g. "AZ") */
+  state?: string
+  city?: string
+  zipCode?: string
+  minPrice?: number
+  maxPrice?: number
+  bedrooms?: number
+  bathrooms?: number
+  propertyType?: 'single-family' | 'condo' | 'townhouse' | 'multi-family'
+  /** Page index for pagination (0-based) */
+  page?: number
+  limit?: number
+}
+
+export interface PropertyListing {
+  id: string
+  address: string
+  city: string
+  state: string
+  zip: string
+  price: number
+  bedrooms: number
+  bathrooms: number
+  sqft?: number
+  propertyType?: string
+  listingDate?: string
+  photoUrl?: string
+  mlsId?: string
+}
+
+export interface PropertyProfile {
+  address: string
+  estimatedValue?: number
+  lastSalePrice?: number
+  lastSaleDate?: string
+  yearBuilt?: number
+  bedrooms?: number
+  bathrooms?: number
+  sqft?: number
+  lotSize?: number
+  propertyType?: string
+  county?: string
+  state?: string
+  zip?: string
+  /** LoanGraphs market data (median days on market, list-to-sale ratio, etc.) */
+  marketData?: Record<string, unknown>
+}
+
+/**
+ * Search properties by geographic/attribute filters.
+ * POST /api/property-search
+ */
+export async function searchProperties(
+  filters: PropertySearchFilters
+): Promise<PropertyListing[] | null> {
+  return apiFetch<PropertyListing[]>('/api/property-search', {
+    method: 'POST',
+    body: JSON.stringify(filters),
+    revalidate: 300, // 5-minute cache — property data changes frequently
+  })
+}
+
+/**
+ * Fetch a detailed property profile by address.
+ * POST /api/property-profile
+ */
+export async function getPropertyProfile(
+  address: string
+): Promise<PropertyProfile | null> {
+  return apiFetch<PropertyProfile>('/api/property-profile', {
+    method: 'POST',
+    body: JSON.stringify({ address }),
+    revalidate: 3600,
+  })
 }
 
 // ---------------------------------------------------------------------------

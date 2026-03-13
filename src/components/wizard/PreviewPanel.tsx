@@ -65,7 +65,7 @@ export default function PreviewPanel({ state }: PreviewPanelProps) {
             textAlign: 'center',
           }}
         >
-          {state.subdomain || 'yourname'}.loangraphs.com
+          {state.subdomain || 'yourname'}.loangraphs.me
         </div>
         <div style={{ display: 'flex', gap: '4px' }}>
           {(['desktop', 'mobile'] as const).map((v) => (

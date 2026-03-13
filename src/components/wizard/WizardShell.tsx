@@ -81,7 +81,7 @@ export default function WizardShell() {
     // Simulate short delay for UX feedback
     await new Promise((r) => setTimeout(r, 1_500))
     localStorage.removeItem(STORAGE_KEY)
-    window.location.href = 'https://loangraphs.com/dashboard'
+    window.location.href = 'https://app.loangraphs.com/website'
   }
 
   const stepProps = { state, onChange }

@@ -144,11 +144,11 @@ export default function StepDomain({ state, onChange }: Props) {
               whiteSpace: 'nowrap',
             }}
           >
-            .loangraphs.com
+            .loangraphs.me
           </span>
         </div>
         <p style={{ fontSize: '0.7rem', color: '#94a3b8', marginTop: '0.35rem' }}>
-          Your site will be live at <strong>https://{state.subdomain || 'yourname'}.loangraphs.com</strong>
+          Your site will be live at <strong>https://{state.subdomain || 'yourname'}.loangraphs.me</strong>
         </p>
       </div>
 

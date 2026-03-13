@@ -27,7 +27,7 @@ export default function StepLaunch({ state, onLaunch, launching }: Props) {
 
   const siteUrl = state.useCustomDomain && state.dnsStatus === 'verified' && state.customDomain
     ? `https://${state.customDomain}`
-    : `https://${state.subdomain || 'yoursite'}.loangraphs.com`
+    : `https://${state.subdomain || 'yoursite'}.loangraphs.me`
 
   return (
     <div>

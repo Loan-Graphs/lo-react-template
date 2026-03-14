@@ -17,6 +17,8 @@ import {
   GeoAwareCTA,
 } from '@/components/base'
 import CustomizationRequestForm from '@/components/CustomizationRequestForm'
+import { getTemplateById } from '@/templates'
+import type { LoanOfficer, Company } from '@/templates/types'
 
 export default async function HomePage() {
   const loProfile = await getProfile()
@@ -24,6 +26,32 @@ export default async function HomePage() {
   const headersList = await headers()
   const visitorState = headersList.get('x-visitor-region') ?? undefined
 
+  // If the LO has a registered template_id, render that template design
+  const TemplateComponent = getTemplateById(loProfile.templateId)
+
+  if (TemplateComponent) {
+    const loanOfficer: LoanOfficer = {
+      ...loProfile,
+      licensedStates: loProfile.licenseStates ?? [],
+      loanTypes: ['Purchase', 'Refinance', 'DSCR', 'FHA'],
+      certifications: [],
+      yearsInIndustry: loProfile.yearsExperience ?? 0,
+    }
+    const company: Company = {
+      name: loProfile.company ?? '',
+      logo: loProfile.logoUrl ?? '',
+      phone: loProfile.phone ?? '',
+      email: loProfile.email ?? '',
+      website: '',
+      about: '',
+      foundedYear: 2020,
+      loanOfficers: [],
+      offices: [],
+    }
+    return <TemplateComponent loanOfficer={loanOfficer} company={company} blogPosts={[]} />
+  }
+
+  // Default base-component layout (fallback when no template_id or unrecognized id)
   return (
     <div
       style={{

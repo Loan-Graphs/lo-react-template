@@ -5,7 +5,7 @@
 import type { LOProfile } from '@/types/lo-profile'
 
 const LOANGRAPHS_API =
-  process.env.LOANGRAPHS_API ?? 'https://app.loangraphs.com/api'
+  process.env.LOANGRAPHS_API ?? 'https://api.loangraphs.com/api'
 
 // Re-export the canonical LOProfile type
 export type { LOProfile } from '@/types/lo-profile'
@@ -42,17 +42,20 @@ function mapApiToLOProfile(
 ): LOProfile {
   const name = (profile.displayName ?? profile.name ?? 'Loan Officer') as string
 
+  // The API nests some settings under profile.settings
+  const settings = (profile.settings ?? {}) as Record<string, unknown>
+
   return {
     // Identity
     name,
     title: (profile.title as string) ?? 'Licensed Mortgage Professional',
-    nmls: (profile.nmls as string) ?? '',
-    photo: (profile.headshotUrl ?? profile.headshot_url ?? '') as string,
-    company: (profile.company as string) ?? '',
+    nmls: ((settings.nmls ?? profile.nmls) as string | undefined) ?? '',
+    photo: (settings.headshot_url ?? settings.headshotUrl ?? profile.headshotUrl ?? profile.headshot_url ?? '') as string,
+    company: ((settings.company ?? profile.company) as string | undefined) ?? '',
     licenseStates: (profile.licensedStates ?? profile.licensed_states ?? []) as string[],
 
     // Contact
-    phone: (profile.phone as string) ?? '',
+    phone: ((settings.phone_number ?? settings.phone ?? profile.phone) as string | undefined) ?? '',
     email: (profile.email as string) ?? '',
     calendlyUrl: (links.applyUrl ?? links.apply_url ?? undefined) as string | undefined,
 
@@ -62,9 +65,10 @@ function mapApiToLOProfile(
     yearsExperience: (profile.yearsExperience as number) ?? 0,
 
     // Branding
-    primaryColor: (profile.primaryColor as string) ?? '#0ea5e9',
-    accentColor: (profile.accentColor as string) ?? '#f97316',
-    logoUrl: (profile.logoUrl as string) ?? undefined,
+    primaryColor: (((profile.landing_page as Record<string, unknown>)?.primary_color as string | undefined) ?? (profile.primaryColor as string | undefined)) ?? '#0ea5e9',
+    accentColor: (((profile.landing_page as Record<string, unknown>)?.secondary_color as string | undefined) ?? (profile.accentColor as string | undefined)) ?? '#f97316',
+    logoUrl: ((settings.logo_url ?? settings.logoUrl ?? profile.logoUrl) as string | undefined) ?? undefined,
+    templateId: (((profile.landing_page as Record<string, unknown>)?.template_id as number | undefined) ?? (profile.template_id as number | undefined)) ?? undefined,
 
     // Content
     headline: (profile.headline as string) ?? 'Your Mortgage, Done Right.',
